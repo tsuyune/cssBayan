@@ -48,6 +48,33 @@
     gap: 1rem;
 }
 
+.container {
+    display: block;
+}
+
+.container:hover .content,
+.checkbox:checked+.content {
+    cursor: pointer;
+
+    width: 100%;
+    max-height: 70rem;
+    display: flex;
+}
+
+.container:hover .image,
+.checkbox:checked+.content .image {
+    transform: scale(1);
+}
+
+.container:hover .icon,
+.checkbox:checked+.content .icon {
+    transform: rotate(180deg);
+}
+
+.checkbox:checked+.content {
+    background-color: #dae8e4;
+}
+
 .title {
     letter-spacing: 0.1em;
     font-size: 2.5rem;
@@ -60,9 +87,27 @@
 }
 
 .accordion:hover .icon {
-    display: block;
+    opacity: 1;
+}
 
+.accordion:hover {
     cursor: pointer;
+}
+
+.accordion:hover .button {
+    color: #46a088;
+
+    transition: color 0.3s ease-in-out;
+}
+
+.accordion:hover .icon>path {
+    fill: #46a088;
+
+    transition: fill 0.3s ease-in-out;
+}
+
+.checkbox {
+    display: none;
 }
 
 .button {
@@ -103,14 +148,10 @@
 }
 
 .icon {
-    opacity: 1;
+    opacity: 0;
     transform: rotate(45deg);
 
     transition: all 0.3s ease-in-out;
-}
-
-.icon__opened {
-    transform: rotate(180deg);
 }
 
 .content {
@@ -129,15 +170,11 @@
 }
 
 .image {
+    transform: scale(0.5);
     width: 100%;
     object-fit: contain;
-}
 
-.content__opened {
-    width: 100%;
-    max-height: 70rem;
-
-    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 120rem) {
@@ -155,6 +192,14 @@
 
     .accordion {
         width: 65%;
+    }
+
+    .content__opened {
+        max-height: 30rem;
+    }
+
+    .image {
+        max-height: 30rem;
     }
 }
 
