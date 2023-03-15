@@ -40,8 +40,7 @@
     display: block;
 }
 
-.container:hover .content,
-.checkbox:checked+.content {
+.radio:checked~.content {
     cursor: pointer;
 
     width: 100%;
@@ -49,18 +48,29 @@
     display: flex;
 }
 
-.container:hover .image,
-.checkbox:checked+.content .image {
+.radio:checked~.content .image {
     transform: scale(1);
 }
 
-.container:hover .icon,
-.checkbox:checked+.content .icon {
+.radio:checked~.content .icon {
     transform: rotate(180deg);
 }
 
-.checkbox:checked+.content {
-    background-color: #dae8e4;
+.radio:checked~.button {
+    color: black;
+}
+
+.radio:checked~.button .icon>path {
+    fill: black;
+}
+
+.container:active .content .image {
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+}
+
+.container:active .button {
+    color: blue;
 }
 
 .title {
@@ -74,27 +84,7 @@
     color: #b5dee6;
 }
 
-.accordion:hover .icon {
-    opacity: 1;
-}
-
-.accordion:hover {
-    cursor: pointer;
-}
-
-.accordion:hover .button {
-    color: #46a088;
-
-    transition: color 0.3s ease-in-out;
-}
-
-.accordion:hover .icon>path {
-    fill: #46a088;
-
-    transition: fill 0.3s ease-in-out;
-}
-
-.checkbox {
+.radio {
     display: none;
 }
 
@@ -109,7 +99,7 @@
     font-size: 1.5rem;
 
     text-transform: lowercase;
-    color: #304f56;
+    color: blue;
 
     border-radius: 0.2rem;
 
@@ -124,14 +114,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.button:hover {
-    cursor: pointer;
-
-    background-color: #b8edf8;
-}
-
 .button:active {
-
     background-color: #b5dee6;
 }
 
@@ -242,5 +225,67 @@
 
     .image {
         max-height: 20rem;
+    }
+}
+
+@media (hover: hover) {
+
+    .container:hover .content {
+        cursor: pointer;
+
+        width: 100%;
+        max-height: 70rem;
+        display: flex;
+    }
+
+    .container:hover .image {
+        transform: scale(1);
+    }
+
+    .container:hover .icon {
+        transform: rotate(180deg);
+    }
+
+
+    .accordion:hover {
+        cursor: pointer;
+    }
+
+    .accordion:hover .button {
+        color: black;
+
+        transition: color 0.3s ease-in-out;
+    }
+
+    .accordion:hover .radio:checked~.button {
+        color: black;
+    }
+
+    .accordion:hover .radio:checked~.button .icon>path {
+        color: black;
+    }
+
+    .container:hover:active .button {
+        color: blue;
+    }
+
+    .container:hover:active .icon>path {
+        fill: blue;
+
+        transition: fill 0.3s ease-in-out;
+    }
+
+    .accordion:hover .icon {
+        opacity: 1;
+    }
+
+    .button:hover {
+        cursor: pointer;
+
+        background-color: #b8edf8;
+    }
+
+    .container:active:hover .radio:checked~.button {
+        color: blue;
     }
 }
