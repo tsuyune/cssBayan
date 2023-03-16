@@ -70,7 +70,7 @@
 }
 
 .container:active .button {
-    color: blue;
+    color: rgb(99, 148, 232);
 }
 
 .title {
@@ -99,7 +99,7 @@
     font-size: 1.5rem;
 
     text-transform: lowercase;
-    color: blue;
+    color: rgb(99, 148, 232);
 
     border-radius: 0.2rem;
 
@@ -259,18 +259,24 @@
 
     .accordion:hover .radio:checked~.button {
         color: black;
+
+        transition: color 0.3s ease-in-out;
     }
 
     .accordion:hover .radio:checked~.button .icon>path {
         color: black;
+
+        transition: color 0.3s ease-in-out;
     }
 
     .container:hover:active .button {
-        color: blue;
+        color: rgb(99, 148, 232);
+
+        transition: color 0.3s ease-in-out;
     }
 
     .container:hover:active .icon>path {
-        fill: blue;
+        fill: rgb(99, 148, 232);
 
         transition: fill 0.3s ease-in-out;
     }
@@ -285,7 +291,9 @@
         background-color: #b8edf8;
     }
 
-    .container:active:hover .radio:checked~.button {
-        color: blue;
+    .container:hover:active .radio:checked~.button {
+        color: rgb(99, 148, 232);
+
+        transition: color 0.3s ease-in-out;
     }
 }
